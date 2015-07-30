@@ -35,7 +35,7 @@ options:
     default: null
     aliases: ['ec2_secret_key', 'secret_key']
   bucket:
-    description: 
+    description:
       - Bucket name.
     required: true
     default: null
@@ -125,12 +125,12 @@ options:
     default: 0
     version_added: "2.0"
   s3_url:
-    description: 
+    description:
       - S3 URL endpoint for usage with Eucalypus, fakes3, etc.  Otherwise assumes AWS
     default: null
     aliases: [ S3_URL ]
   src:
-    description: 
+    description:
       - The source file path when performing a PUT operation.
     required: false
     default: null
@@ -486,7 +486,7 @@ def main():
         # If the destination path doesn't exist or overwrite is True, no need to do the md5um etag check, so just download.
         pathrtn = path_check(dest)
         if pathrtn is False or overwrite == 'always':
-            download_s3file(module, s3, bucket, obj, dest)
+            download_s3file(module, s3, bucket, obj, dest, retries)
 
         # Compare the remote MD5 sum of the object with the local dest md5sum, if it already exists.
         if pathrtn is True:
